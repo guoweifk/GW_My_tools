@@ -1,19 +1,45 @@
 {
   "192.168.55.145": {
     "services": {
-			"AMF": {
-				"enable": true,
-				"egress": {
-					"rate": "10000kbit",
-					"burst": "1000kbit",
-					"limit": "100k"
-				},
-				"ingress": {
-					"rate": "10000kbit",
-					"burst": "10000k",
-					"drop": true
-				}
-			}
-		}
+      "AMF": {
+        "enable": true,
+        "egress": {
+          "rate": "10000kbit",
+          "burst": "1000kbit",
+          "limit": "100k"
+        },
+        "ingress": {
+          "rate": "10000kbit",
+          "burst": "10000k",
+          "drop": true
+        }
+      },
+      "SMF": {
+        "enable": true,
+        "egress": {
+          "rate": "10kbit",
+          "burst": "10kbit",
+          "limit": "5k"
+        },
+        "ingress": {
+          "rate": "10kbit",
+          "burst": "1k",
+          "drop": true
+        }
+      },
+      "SCP": {
+        "enable": true,
+        "egress": {
+          "rate": "200kbit",
+          "burst": "200kbit",
+          "limit": "200k"
+        },
+        "ingress": {
+          "rate": "200kbit",
+          "burst": "200k",
+          "drop": true
+        }
+      }
+    }
   }
 }

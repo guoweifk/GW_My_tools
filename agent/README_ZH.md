@@ -54,7 +54,7 @@ volumes:
 ```
 ✅ 设置启动命令
 ```yaml
-command: bash -c "cd /opt && python3 -m agent.load_control_agent"
+command: bash -c "cd /opt && python3 -m agent.load_control_agent & cd /open5gs && bash ../open5gs_init.sh && wait"
 ```
 
 ✅ 暴露控制端口
@@ -88,7 +88,7 @@ nssf:
     - /etc/timezone:/etc/timezone:ro
     - /etc/localtime:/etc/localtime:ro
     - ./agent:/opt/agent
-  command: bash -c "cd /opt && python3 -m agent.load_control_agent"
+  command: bash -c "cd /opt && python3 -m agent.load_control_agent & cd /open5gs && bash ../open5gs_init.sh && wait"
   expose:
     - "7777/tcp"
     - "7799/tcp"

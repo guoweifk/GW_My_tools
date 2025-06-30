@@ -1,11 +1,12 @@
 {
-	"192.168.55.145":
-		[{
-				"action": "start",
-				"target_cf": "AMF",
-				"target_port": "9000",
-				"rate": "500kbit",
-				"count": 0,
-				"interval": 0.01
-        }]
+  "192.168.55.145": [
+    {
+      "action": "start",
+      "target_cf": "AMF",
+      "target_port": "9000",
+      "rate": "500kbit",
+      "count": 0,
+      "interval": 0.01
+    }
+  ]
 }

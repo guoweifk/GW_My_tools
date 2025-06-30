@@ -81,6 +81,6 @@ def send_netem_config_to_agent():
 
 
 if __name__ == "__main__":
-    # send_netem_config_to_agent()
+    send_netem_config_to_agent()
     # send_traffic_config_to_server()
-    send_traffic_config_to_agent()
+    # send_traffic_config_to_agent()
