@@ -1,0 +1,19 @@
+{
+  "192.168.55.145": {
+    "services": {
+			"AMF": {
+				"enable": true,
+				"egress": {
+					"rate": "10000kbit",
+					"burst": "1000kbit",
+					"limit": "100k"
+				},
+				"ingress": {
+					"rate": "10000kbit",
+					"burst": "10000k",
+					"drop": true
+				}
+			}
+		}
+  }
+}
