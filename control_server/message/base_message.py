@@ -59,6 +59,15 @@ class AgentTrafficControlMessage(BaseServerControlMessage):
 class ServerTrafficControlMessage(BaseServerControlMessage):
     payload: List[ServerTrafficPayload]
 
+    @staticmethod
+    def from_dict(d: dict) -> "ServerTrafficControlMessage":
+        return ServerTrafficControlMessage(
+            type=d["type"],
+            timestamp=d.get("timestamp"),
+            target_server_ip=d["target_server_ip"],
+            payload=[ServerTrafficPayload.from_dict(p) for p in d["payload"]]
+        )
+
 
 # 发给agent的消息
 @dataclass

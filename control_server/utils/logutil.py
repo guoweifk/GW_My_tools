@@ -28,7 +28,7 @@ def get_logger(name="default", level=logging.INFO):
     if logger.hasHandlers():
         return logger  # 防止重复添加
 
-    formatter = logging.Formatter("[%(asctime)s] [%(levelname)s] %(message)s")
+    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d - %(message)s")
 
     # 控制台输出
     console_handler = logging.StreamHandler()

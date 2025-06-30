@@ -54,8 +54,9 @@ class NetemProcessor(BaseProcessor):
         self.apply_network_config(msg.payload)
 
     def apply_egress(self, cfg: AgentNetemDirectionConfig):
-        if not cfg or "rate" not in cfg:
+        if not cfg or not cfg.rate:
             return
+
         rate = cfg.rate
         burst = cfg.burst
         limit = cfg.limit
@@ -67,8 +68,9 @@ class NetemProcessor(BaseProcessor):
         logger.info(f"[↑] 上行限速设置成功: rate={rate}, burst={burst}, limit={limit}")
 
     def apply_ingress(self, cfg: AgentNetemDirectionConfig):
-        if not cfg or "rate" not in cfg:
+        if not cfg or not cfg.rate:
             return
+
         rate = cfg.rate
         burst = cfg.burst
         drop = cfg.drop
@@ -88,5 +90,7 @@ class NetemProcessor(BaseProcessor):
             return
 
         clear_tc()
+        logger.info("[ℹ] 开始egress")
         self.apply_egress(config.egress)
+        logger.info("[ℹ] 开始ingress")
         self.apply_ingress(config.ingress)

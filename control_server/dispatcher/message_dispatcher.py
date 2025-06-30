@@ -19,7 +19,7 @@
 from control_server.dispatcher.agent_netem_command_processor import AgentNetemCommandProcessor
 from control_server.dispatcher.agent_traffic_command_processor import AgentTrafficCommandProcessor
 from control_server.dispatcher.server_traffic_command_processor import ServerTrafficCommandProcessor
-from control_server.message.base_message import AgentNetemControlMessage, AgentTrafficMessage
+from control_server.message.base_message import AgentNetemControlMessage, AgentTrafficControlMessage,ServerTrafficControlMessage
 from control_server.utils.logutil import get_logger
 
 logger = get_logger("message_dispatcher")
@@ -40,10 +40,12 @@ class ServerMessageDispatcher:
             self.netem_processor.handle(msg_obj)
 
         elif msg_type == "agent_traffic":
-            self.agent_traffic_processor.handle(msg)
+            msg_obj = AgentTrafficControlMessage.from_dict(msg)
+            self.agent_traffic_processor.handle(msg_obj)
 
         elif msg_type == "server_traffic":
-            self.server_traffic_processor.handle(msg)
+            msg_obj = ServerTrafficControlMessage.from_dict(msg)
+            self.server_traffic_processor.handle(msg_obj)
 
         else:
             logger.warning(f"[!] 未知消息类型: {msg_type}")

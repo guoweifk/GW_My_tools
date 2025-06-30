@@ -16,7 +16,7 @@ os.makedirs(DEFAULT_LOG_DIR, exist_ok=True)  # 自动创建目录（如果不存
 
 def get_logger(name="default", level=logging.INFO):
     # 从环境变量读取路径或使用默认路径
-    log_path = os.getenv("LOG_FILE", os.path.join(DEFAULT_LOG_DIR, "control_server.log"))
+    log_path = os.getenv("LOG_FILE", os.path.join(DEFAULT_LOG_DIR, "/var/log/control_server.log"))
 
     logger = logging.getLogger(name)
     logger.setLevel(level)
@@ -24,7 +24,7 @@ def get_logger(name="default", level=logging.INFO):
     if logger.hasHandlers():
         return logger  # 防止重复添加
 
-    formatter = logging.Formatter("[%(asctime)s] [%(levelname)s] %(message)s")
+    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d - %(message)s")
 
     # 控制台输出
     console_handler = logging.StreamHandler()

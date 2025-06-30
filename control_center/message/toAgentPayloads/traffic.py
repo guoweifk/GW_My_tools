@@ -24,14 +24,21 @@ class AgentTrafficPayload:
 @dataclass
 class ServerToAgentTrafficPayload:
     services: Dict[str, List[AgentTrafficPayload]]
+#
 # {
 #   "type": "traffic",
 #   "payload": {
-#     "action": "start",
-#     "target_ip": "192.168.0.11",
-#     "target_port": 9000,
-#     "rate": "500kbit",
-#     "count": 1000,
-#     "interval": 0.01
+#     "services": {
+#       "AMF": [
+#         {
+#           "action": "start",
+#           "target_ip": "192.168.0.11",
+#           "target_port": "9000",
+#           "rate": "500kbit",
+#           "count": 1000,
+#           "interval": 0.01
+#         }
+#       ]
+#     }
 #   }
 # }

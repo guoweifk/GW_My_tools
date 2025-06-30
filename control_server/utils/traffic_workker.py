@@ -35,13 +35,15 @@ def traffic_worker(target_ip: str, target_port: int, rate: str, count: int, inte
     payload = b'X' * packet_size
 
     try:
-        for i in range(count):
-            start_time = time.time()
-            sock.sendto(payload, (target_ip, target_port))
-            logger.info(f"[发送] 第 {i + 1}/{count} 个包 ({packet_size} Bytes)")
-            elapsed = time.time() - start_time
-            sleep_time = max(0, interval - elapsed)
-            time.sleep(sleep_time)
+        if count == 0:
+            logger.info("[∞] 持续发送模式开启（count=0）")
+            while True:
+                sock.sendto(payload, (target_ip, target_port))
+                time.sleep(0.001)
+        else:
+            for i in range(count):
+                sock.sendto(payload, (target_ip, target_port))
+                time.sleep(0.001)
     except Exception as e:
         logger.error(f"[×] 发送流量出错: {e}")
     finally:

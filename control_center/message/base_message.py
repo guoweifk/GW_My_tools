@@ -47,6 +47,7 @@ class ServerTrafficControlMessage(BaseServerControlMessage):
 class BaseAgentControlMessage(ABC):
     type: str
     timestamp: Optional[str]
+    target_server_ip: str
 
 
 @dataclass

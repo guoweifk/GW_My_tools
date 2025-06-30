@@ -18,3 +18,14 @@ class ServerTrafficPayload:
     rate: str = "500kbit"
     count: int = 1000
     interval: float = 0.01
+
+    @staticmethod
+    def from_dict(d: dict) -> "ServerTrafficPayload":
+        return ServerTrafficPayload(
+            target_cf=d["target_cf"],
+            target_port=str(d["target_port"]),
+            action=d["action"],
+            rate=d.get("rate", "500kbit"),
+            count=int(d.get("count", 1000)),
+            interval=float(d.get("interval", 0.01))
+        )
