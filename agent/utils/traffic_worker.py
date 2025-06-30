@@ -11,7 +11,7 @@ import socket
 import time
 from agent.utils.logutil import get_logger
 
-logger = get_logger("traffic_worker")
+logger = get_logger("load_control_agent")
 
 
 def traffic_worker(target_ip: str, target_port: int, rate: str, count: int, interval: float):

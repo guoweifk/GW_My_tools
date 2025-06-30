@@ -17,7 +17,7 @@ from control_server.utils.logutil import get_logger
 from control_server.utils.traffic_workker import traffic_worker
 from control_server.utils import agent_ip_config
 
-logger = get_logger("server_traffic_command_processor")
+logger = get_logger("load_control_manager")
 
 logger.info("日志初始化成功")
 logger.setLevel(logging.INFO)

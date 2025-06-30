@@ -2,7 +2,7 @@
 	"192.168.55.145": {
 		"services": {
 			"AMF": [{
-				"action": "stop",
+				"action": "start",
 				"target_ip": "192.168.55.145",
 				"target_port": "9000",
 				"rate": "500kbit",

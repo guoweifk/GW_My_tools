@@ -12,18 +12,19 @@ import socket
 import json
 import os
 import sys
+from control_server.dispatcher.message_dispatcher import ServerMessageDispatcher
+
+# 把项目根目录加入 sys.path，比如 /tmp/pycharm_project_458
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # control_server/
+PROJECT_ROOT = os.path.dirname(BASE_DIR)  # docker_open5gs/
+sys.path.insert(0, PROJECT_ROOT)
 
 from control_server.utils.logutil import get_logger
 
 logger = get_logger("load_control_manager")
 SERVER_PORT = 22222  # 容器内部 agent 监听端口
+logger.info(f"[启动] PROJECT_ROOT:  {PROJECT_ROOT}")
 
-# 把项目根目录加入 sys.path，比如 /tmp/pycharm_project_458
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.insert(0, PROJECT_ROOT)
-logger.info(f"PROJECT_ROOT {PROJECT_ROOT}")
-
-from control_server.dispatcher.message_dispatcher import ServerMessageDispatcher
 
 
 def start_server():

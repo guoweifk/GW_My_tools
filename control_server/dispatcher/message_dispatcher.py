@@ -22,7 +22,8 @@ from control_server.dispatcher.server_traffic_command_processor import ServerTra
 from control_server.message.base_message import AgentNetemControlMessage, AgentTrafficControlMessage,ServerTrafficControlMessage
 from control_server.utils.logutil import get_logger
 
-logger = get_logger("message_dispatcher")
+logger = get_logger("load_control_manager")
+
 
 
 class ServerMessageDispatcher:

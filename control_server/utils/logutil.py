@@ -11,33 +11,30 @@
 import os
 import logging
 
-# 当前模块所在目录
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# 日志目录，固定为当前模块的 log 子目录
-DEFAULT_LOG_DIR = os.path.join(BASE_DIR, "log")
-os.makedirs(DEFAULT_LOG_DIR, exist_ok=True)  # 自动创建 log 目录
+# 日志文件统一写入当前目录的 fixed 文件名
+LOG_FILE_NAME = "control_server_manager.log"
+LOG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), LOG_FILE_NAME)
+os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
 
 def get_logger(name="default", level=logging.INFO):
-    # 从环境变量读取路径或使用默认路径
-    log_path = os.path.join(DEFAULT_LOG_DIR, "control_server.log")
-
     logger = logging.getLogger(name)
     logger.setLevel(level)
 
-    if logger.hasHandlers():
-        return logger  # 防止重复添加
+    formatter = logging.Formatter(
+        "%(asctime)s [%(levelname)s] %(name)s %(filename)s:%(lineno)d - %(message)s"
+    )
 
-    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d - %(message)s")
+    # 控制台 handler（只添加一次）
+    if not any(isinstance(h, logging.StreamHandler) for h in logger.handlers):
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
 
-    # 控制台输出
-    console_handler = logging.StreamHandler()
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-
-    # 文件输出
-    file_handler = logging.FileHandler(log_path)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+    # 文件 handler（只添加一次）
+    if not any(isinstance(h, logging.FileHandler) and h.baseFilename == os.path.abspath(LOG_PATH)
+               for h in logger.handlers):
+        file_handler = logging.FileHandler(LOG_PATH)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
 
     return logger

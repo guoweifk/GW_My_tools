@@ -14,7 +14,7 @@ from agent.utils.logutil import get_logger
 from agent.utils.traffic_worker import traffic_worker
 from agent.message.base_message import AgentTrafficMessage, AgentTrafficPayload
 
-logger = get_logger("traffic_generator_processor")
+logger = get_logger("load_control_agent")
 
 
 # 启动一个流量发送线程，放到多线程集中，如果要关闭，关闭对应线程

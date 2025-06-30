@@ -18,10 +18,6 @@ import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # control_server/
 PROJECT_ROOT = os.path.dirname(BASE_DIR)  # docker_open5gs/
 sys.path.insert(0, PROJECT_ROOT)
-# CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-# PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, ".."))  # 回退到 open5gs/log/open5gs
-# sys.path.insert(0, PROJECT_ROOT)
-
 
 from agent.utils.logutil import get_logger
 

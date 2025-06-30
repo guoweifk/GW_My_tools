@@ -15,7 +15,8 @@ from control_server.utils.logutil import get_logger
 from control_server.utils import agent_ip_config, send_to_agent
 from datetime import datetime
 
-logger = get_logger("agent_traffic_command_processor")
+logger = get_logger("load_control_manager")
+
 
 logger.info("日志初始化成功")
 logger.setLevel(logging.INFO)

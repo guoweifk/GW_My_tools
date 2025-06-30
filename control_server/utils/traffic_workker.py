@@ -20,7 +20,7 @@ import socket
 import time
 from control_server.utils.logutil import get_logger
 
-logger = get_logger("server_traffic_worker")
+logger = get_logger("load_control_manager")
 
 def traffic_worker(target_ip: str, target_port: int, rate: str, count: int, interval: float):
     logger.info(f"开始流量发送: target={target_ip}:{target_port}, rate={rate}, count={count}, interval={interval}s")

@@ -10,30 +10,36 @@
 
 import os
 import logging
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # 当前模块所在目录
-DEFAULT_LOG_DIR = os.path.join(BASE_DIR, "log")
-os.makedirs(DEFAULT_LOG_DIR, exist_ok=True)  # 自动创建目录（如果不存在）
+
+# 自动定位 /mnt 下的唯一子目录作为日志目录
+mnt_root = "/mnt"
+mnt_subdirs = [d for d in os.listdir(mnt_root) if os.path.isdir(os.path.join(mnt_root, d))]
+if not mnt_subdirs:
+    raise RuntimeError("未找到 /mnt 下的有效子目录！")
+
+mnt_target_dir = os.path.join(mnt_root, mnt_subdirs[0])
+log_path = os.getenv("LOG_FILE", os.path.join(mnt_target_dir, "load_control_agent.log"))
+os.makedirs(os.path.dirname(log_path), exist_ok=True)
 
 def get_logger(name="default", level=logging.INFO):
-    # 从环境变量读取路径或使用默认路径
-    log_path = os.getenv("LOG_FILE", os.path.join(DEFAULT_LOG_DIR, "/var/log/control_server.log"))
-
     logger = logging.getLogger(name)
     logger.setLevel(level)
 
+    # 防止重复添加 handler
     if logger.hasHandlers():
-        return logger  # 防止重复添加
+        return logger
 
     formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d - %(message)s")
 
-    # 控制台输出
+    # 控制台输出 handler
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
 
-    # 文件输出
+    # 文件输出 handler
     file_handler = logging.FileHandler(log_path)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
     return logger
+

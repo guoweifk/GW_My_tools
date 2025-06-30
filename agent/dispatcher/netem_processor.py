@@ -15,7 +15,7 @@ from agent.message.payloads.netem import AgentNetemPayload, AgentNetemDirectionC
 from agent.message.base_message import AgentNetemMessage
 from agent.utils.logutil import get_logger
 
-logger = get_logger("netem_processor")
+logger = get_logger("load_control_agent")
 
 logger.info("日志初始化成功")
 logger.setLevel(logging.INFO)

@@ -50,7 +50,7 @@ def send_traffic_config_to_agent():
         exit(1)
     for host_ip, profiles in full_profile.items():
         msg = AgentNetemControlMessage(
-            type="agent_netem",
+            type="agent_traffic",
             timestamp=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
             target_server_ip=host_ip,
             payload=profiles
@@ -71,7 +71,7 @@ def send_netem_config_to_agent():
 
     for host_ip, profiles in full_profile.items():
         msg = AgentTrafficControlMessage(
-            type="agent_traffic",
+            type="agent_netem",
             timestamp=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
             target_server_ip=host_ip,
             payload=profiles
@@ -82,5 +82,5 @@ def send_netem_config_to_agent():
 
 if __name__ == "__main__":
     # send_netem_config_to_agent()
-    send_traffic_config_to_server()
-    # send_traffic_config_to_agent()
+    # send_traffic_config_to_server()
+    send_traffic_config_to_agent()
