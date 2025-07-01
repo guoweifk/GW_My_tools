@@ -2,6 +2,15 @@
 # -*- coding:utf-8 -*-
 """
 @author: GW
+@time: 2025-06-30 21:23 
+@file: batchUpdateSubscribe.py
+@project: GW_My_tools
+@describe: Powered By GW
+"""
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+"""
+@author: GW
 @time: 2025-03-20 10:10 
 @file: batchSubscribe.py
 @project: GW_My_tools
@@ -14,14 +23,15 @@ import requests
 import json
 import time
 
-# Open5GS API 服务器地址
-API_URL = "http://192.168.55.186:9999/api/db/Subscriber"
+
 
 # 认证 Token
 AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3NzI1YzIyN2EyZTc3MDAxNzRhMjc0YSIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNzQxMDk2MDQ2fQ.dgOxhMRLW3iEySIdUi3YkDjkVyqUF4tgvVHW25-4EN0"
 
 
 def register_subscriber(imsi):
+    # Open5GS API 服务器地址
+    API_URL = f"http://192.168.55.186:9999/api/db/Subscriber/{imsi}"
     # 订阅者信息
     subscriber_data = {
         "imsi": imsi,
@@ -102,8 +112,7 @@ def register_subscriber(imsi):
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
     }
 
-    # 发送请求
-    response = requests.post(API_URL, headers=headers, data=json.dumps(subscriber_data))
+    response = requests.patch(API_URL, headers=headers, data=json.dumps(subscriber_data))
 
     # 打印结果
     print("状态码:", response.status_code)
@@ -111,7 +120,7 @@ def register_subscriber(imsi):
 
 def main ():
     # 批量注册 IMSI
-    for i in range(1, 2):
+    for i in range(3, 100):
         imsi = f"466920123456{str(i).zfill(3)}"
         print(imsi)
         time.sleep(0.5)

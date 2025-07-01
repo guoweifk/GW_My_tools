@@ -11,6 +11,7 @@
 from control_server.message.toAgentPayloads.netem import ServerToAgentNetemPayload,AgentNetemPayload
 from control_server.message.toAgentPayloads.traffic import ServerToAgentTrafficPayload,AgentTrafficPayload
 from control_server.message.serverPayloads.server_traffic import ServerTrafficPayload
+from control_server.message.serverPayloads.server_python_cmd import ServerPythonCommandPayload
 from dataclasses import dataclass
 from typing import Optional,List
 from abc import ABC
@@ -66,6 +67,19 @@ class ServerTrafficControlMessage(BaseServerControlMessage):
             timestamp=d.get("timestamp"),
             target_server_ip=d["target_server_ip"],
             payload=[ServerTrafficPayload.from_dict(p) for p in d["payload"]]
+        )
+
+@dataclass
+class ServerPythonCommandMessage(BaseServerControlMessage):
+    payload: List[ServerPythonCommandPayload]
+
+    @staticmethod
+    def from_dict(d: dict) -> "ServerPythonCommandMessage":
+        return ServerPythonCommandMessage(
+            type=d["type"],
+            timestamp=d.get("timestamp"),
+            target_server_ip=d["target_server_ip"],
+            payload=[ServerPythonCommandPayload.from_dict(p) for p in d["payload"]]
         )
 
 

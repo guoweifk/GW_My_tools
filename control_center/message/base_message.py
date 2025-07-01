@@ -11,6 +11,7 @@
 from control_center.message.toAgentPayloads.netem import ServerToAgentNetemPayload,AgentNetemPayload
 from control_center.message.toAgentPayloads.traffic import ServerToAgentTrafficPayload,AgentTrafficPayload
 from control_center.message.serverPayloads.server_traffic import ServerTrafficPayload
+from control_center.message.serverPayloads.server_python_cmd import ServerPythonCommandPayload
 from dataclasses import dataclass
 from typing import Optional,List
 from abc import ABC
@@ -40,6 +41,10 @@ class AgentTrafficControlMessage(BaseServerControlMessage):
 @dataclass
 class ServerTrafficControlMessage(BaseServerControlMessage):
     payload: List[ServerTrafficPayload]
+
+@dataclass
+class ServerPythonCommandMessage(BaseServerControlMessage):
+    payload: List[ServerPythonCommandPayload]
 
 
 # 发给agent的消息

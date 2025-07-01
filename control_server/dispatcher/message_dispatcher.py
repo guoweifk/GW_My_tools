@@ -19,11 +19,12 @@
 from control_server.dispatcher.agent_netem_command_processor import AgentNetemCommandProcessor
 from control_server.dispatcher.agent_traffic_command_processor import AgentTrafficCommandProcessor
 from control_server.dispatcher.server_traffic_command_processor import ServerTrafficCommandProcessor
-from control_server.message.base_message import AgentNetemControlMessage, AgentTrafficControlMessage,ServerTrafficControlMessage
+from control_server.dispatcher.server_python_command_processor import ServerPythonCommandProcessor
+from control_server.message.base_message import AgentNetemControlMessage, AgentTrafficControlMessage, \
+    ServerTrafficControlMessage, ServerPythonCommandMessage
 from control_server.utils.logutil import get_logger
 
 logger = get_logger("load_control_manager")
-
 
 
 class ServerMessageDispatcher:
@@ -31,6 +32,8 @@ class ServerMessageDispatcher:
         self.netem_processor = AgentNetemCommandProcessor()
         self.agent_traffic_processor = AgentTrafficCommandProcessor()
         self.server_traffic_processor = ServerTrafficCommandProcessor()
+        self.server_python_cmd_processor = ServerPythonCommandProcessor()
+
 
     def dispatch(self, msg):
         msg_type = msg.get("type")
@@ -47,6 +50,10 @@ class ServerMessageDispatcher:
         elif msg_type == "server_traffic":
             msg_obj = ServerTrafficControlMessage.from_dict(msg)
             self.server_traffic_processor.handle(msg_obj)
+
+        elif msg_type == "exec_python":
+            msg_obj = ServerPythonCommandMessage.from_dict(msg)
+            self.server_python_cmd_processor.handle(msg_obj)
 
         else:
             logger.warning(f"[!] 未知消息类型: {msg_type}")

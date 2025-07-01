@@ -1,7 +1,7 @@
 {
-  "192.168.55.145": {
+  "192.168.55.200": {
     "services": {
-      "AMF": {
+      "MME": {
         "enable": true,
         "egress": {
           "rate": "10000kbit",
@@ -27,7 +27,20 @@
           "drop": true
         }
       },
-      "SCP": {
+      "SGWC": {
+        "enable": true,
+        "egress": {
+          "rate": "200kbit",
+          "burst": "200kbit",
+          "limit": "200k"
+        },
+        "ingress": {
+          "rate": "200kbit",
+          "burst": "200k",
+          "drop": true
+        }
+      },
+      "SGWU": {
         "enable": true,
         "egress": {
           "rate": "200kbit",
