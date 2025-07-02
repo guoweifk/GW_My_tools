@@ -4,52 +4,52 @@
       "MME": {
         "enable": true,
         "egress": {
-          "rate": "10000kbit",
-          "burst": "1000kbit",
-          "limit": "100k"
+          "rate": "5kbit",
+          "burst": "5kbit",
+          "limit": "5k"
         },
         "ingress": {
-          "rate": "10000kbit",
-          "burst": "10000k",
+          "rate": "5kbit",
+          "burst": "5k",
           "drop": true
         }
       },
       "SMF": {
         "enable": true,
         "egress": {
-          "rate": "10kbit",
-          "burst": "10kbit",
+          "rate": "5kbit",
+          "burst": "5kbit",
           "limit": "5k"
         },
         "ingress": {
-          "rate": "10kbit",
-          "burst": "1k",
+          "rate": "5kbit",
+          "burst": "5k",
           "drop": true
         }
       },
       "SGWC": {
         "enable": true,
         "egress": {
-          "rate": "200kbit",
-          "burst": "200kbit",
-          "limit": "200k"
+          "rate": "5kbit",
+          "burst": "5kbit",
+          "limit": "5k"
         },
         "ingress": {
-          "rate": "200kbit",
-          "burst": "200k",
+          "rate": "5kbit",
+          "burst": "5k",
           "drop": true
         }
       },
       "SGWU": {
         "enable": true,
         "egress": {
-          "rate": "200kbit",
-          "burst": "200kbit",
-          "limit": "200k"
+          "rate": "5kbit",
+          "burst": "5kbit",
+          "limit": "5k"
         },
         "ingress": {
-          "rate": "200kbit",
-          "burst": "200k",
+          "rate": "5kbit",
+          "burst": "5k",
           "drop": true
         }
       }

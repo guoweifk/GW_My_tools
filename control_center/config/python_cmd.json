@@ -1,24 +1,16 @@
 {
-  "192.168.55.200": [
+  "192.168.55.216": [
     {
-      "command": "python --version"
+      "command": "cd /root/eNB && python3 start_4g_ue.py --ip 192.168.55.216 --start_tun_id 31 --thread_sum 3",
+      "time_out": 500
     },
     {
-      "command": "python --version"
+      "command": "cd /root/eNB && python3 start_4g_ue.py --ip 192.168.55.220 --start_tun_id 5 --thread_sum 3",
+      "time_out": 500
     },
     {
-      "command": "python --version"
-    }
-  ],
-  "192.168.55.201": [
-    {
-      "command": "python --version"
-    },
-    {
-      "command": "python --version"
-    },
-    {
-      "command": "python --version"
+      "command": "cd /root/eNB && python3 start_4g_ue.py --ip 192.168.55.221 --start_tun_id 18 --thread_sum 3",
+      "time_out": 500
     }
   ]
 }

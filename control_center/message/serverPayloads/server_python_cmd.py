@@ -13,9 +13,11 @@ from dataclasses import dataclass
 @dataclass
 class ServerPythonCommandPayload:
     command: str
+    time_out: int
 
     @staticmethod
     def from_dict(d: dict) -> "ServerPythonCommandPayload":
         return ServerPythonCommandPayload(
-            command=d["command"]
+            command=d["command"],
+            time_out=d["time_out"]
         )
