@@ -1,10 +1,10 @@
 {
-  "192.168.55.145": [
+  "192.168.55.244": [
     {
       "action": "start",
-      "target_cf": "AMF",
+      "target_cf": "SMF",
       "target_port": "9000",
-      "rate": "500kbit",
+      "rate": "500",
       "count": 0,
       "interval": 0.01
     }

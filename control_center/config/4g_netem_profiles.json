@@ -1,55 +1,81 @@
 {
-  "192.168.55.200": {
+  "192.168.55.244": {
     "services": {
       "MME": {
         "enable": true,
         "egress": {
-          "rate": "5kbit",
-          "burst": "5kbit",
-          "limit": "5k"
+          "rate": "50kbit",
+          "burst": "100kbit",
+          "limit": "100k"
         },
         "ingress": {
-          "rate": "5kbit",
-          "burst": "5k",
+          "rate": "50kbit",
+          "burst": "50k",
           "drop": true
         }
       },
       "SMF": {
         "enable": true,
         "egress": {
-          "rate": "5kbit",
-          "burst": "5kbit",
-          "limit": "5k"
+          "rate": "50kbit",
+          "burst": "50kbit",
+          "limit": "50k"
         },
         "ingress": {
-          "rate": "5kbit",
-          "burst": "5k",
+          "rate": "3300kbit",
+          "burst": "3300k",
           "drop": true
         }
       },
       "SGWC": {
         "enable": true,
         "egress": {
-          "rate": "5kbit",
-          "burst": "5kbit",
-          "limit": "5k"
+          "rate": "500kbit",
+          "burst": "500kbit",
+          "limit": "500k"
         },
         "ingress": {
-          "rate": "5kbit",
-          "burst": "5k",
+          "rate": "500kbit",
+          "burst": "500k",
           "drop": true
         }
       },
       "SGWU": {
         "enable": true,
         "egress": {
-          "rate": "5kbit",
-          "burst": "5kbit",
-          "limit": "5k"
+          "rate": "50kbit",
+          "burst": "500kbit",
+          "limit": "10k"
         },
         "ingress": {
-          "rate": "5kbit",
-          "burst": "5k",
+          "rate": "50kbit",
+          "burst": "50k",
+          "drop": true
+        }
+      },
+        "PCRF": {
+        "enable": true,
+        "egress": {
+          "rate": "10kbit",
+          "burst": "10kbit",
+          "limit": "10k"
+        },
+        "ingress": {
+          "rate": "50kbit",
+          "burst": "50k",
+          "drop": true
+        }
+      },
+        "HSS": {
+        "enable": true,
+        "egress": {
+          "rate": "200kbit",
+          "burst": "200kbit",
+          "limit": "200k"
+        },
+        "ingress": {
+          "rate": "100kbit",
+          "burst": "100k",
           "drop": true
         }
       }

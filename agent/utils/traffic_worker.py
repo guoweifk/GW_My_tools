@@ -19,9 +19,8 @@ def traffic_worker(target_ip: str, target_port: int, rate: str, count: int, inte
     target_port = int(target_port)
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-    # 根据速率估算每次发送的数据包大小（默认：1250 Bytes ~ 10Mbps）
-    # 可根据实际速率进行动态计算
-    packet_size = 1250  # 约等于 10Mbps/1秒 if 每秒发一个包
+
+    packet_size = int(rate)  # 约等于 10Mbps/1秒 if 每秒发一个包
 
     # 构造固定大小的 payload 数据
     payload = b'X' * packet_size
@@ -40,6 +39,5 @@ def traffic_worker(target_ip: str, target_port: int, rate: str, count: int, inte
     finally:
         sock.close()
         logger.info("完成流量发送任务")
-
 
 # ifstat -i eth0 1

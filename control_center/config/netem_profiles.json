@@ -1,42 +1,16 @@
 {
   "192.168.55.145": {
     "services": {
-      "AMF": {
-        "enable": true,
-        "egress": {
-          "rate": "30kbit",
-          "burst": "30kbit",
-          "limit": "10k"
-        },
-        "ingress": {
-          "rate": "30kbit",
-          "burst": "30k",
-          "drop": true
-        }
-      },
-      "PCF": {
+      "MONGO": {
         "enable": true,
         "egress": {
           "rate": "50kbit",
           "burst": "50kbit",
-          "limit": "10k"
+          "limit": "50k"
         },
         "ingress": {
           "rate": "50kbit",
           "burst": "50k",
-          "drop": true
-        }
-      },
-      "SCP": {
-        "enable": true,
-        "egress": {
-          "rate": "100kbit",
-          "burst": "100kbit",
-          "limit": "100k"
-        },
-        "ingress": {
-          "rate": "100kbit",
-          "burst": "100k",
           "drop": true
         }
       }

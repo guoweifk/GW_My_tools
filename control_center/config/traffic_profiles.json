@@ -1,12 +1,12 @@
 {
-  "192.168.55.145": {
+  "192.168.55.244": {
     "services": {
-      "AMF": [
+      "MME": [
         {
-          "action": "stop",
-          "target_ip": "192.168.55.145",
+          "action": "stop_all",
+          "target_ip": "172.22.0.7",
           "target_port": "9000",
-          "rate": "500kbit",
+          "rate": "3000",
           "count": 0,
           "interval": 0.01
         }
@@ -14,3 +14,4 @@
     }
   }
 }
+
