@@ -8,18 +8,17 @@
 @describe: Powered By GW
 """
 
-
 import requests
 import json
 import time
 
 url = "http://192.168.55.78:33030/neData/udm/auth/001"
-
+auth = "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhaXQiOjE3NTQ0NjQzMzQ0MDQsImV4cCI6MTc1NDQ3MTUzNDQwNCwibG9naW5fa2V5IjoiZnBoanczcTk2YzQ0OGdoaCIsInVzZXJfaWQiOiIyIiwidXNlcl9uYW1lIjoiYWRtaW4ifQ.DPtW0VEfaiktcXDuJKAyTlJsFUbDHHIMwx-J_xFX7kb3vwEuxkk9duQsA_M7HdXi4ekkfIcBDST7BQiADak8Jw"
 headers = {
     "accept": "*/*",
     "accept-encoding": "gzip, deflate",
     "accept-language": "en_US;q=0.9",
-    "authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhaXQiOjE3NDY3OTkzMzE3MTAsImV4cCI6MTc0NjgwNjUzMTcxMCwibG9naW5fa2V5IjoiM3ljYzl3cnI1MDR3eHJhayIsInVzZXJfaWQiOiIyIiwidXNlcl9uYW1lIjoiYWRtaW4ifQ._Mo2lbx9TWGmbbTGFpOqkOHNCg3LNd4Z7-ILKd6F38yJBaeJOn-JibwtLqI3hWYVtovAkGYy6Zou62i3OpUrNA",
+    "authorization": auth,
     "cache-control": "max-age=0",
     "connection": "keep-alive",
     "content-type": "application/json;charset=utf-8",
@@ -31,8 +30,8 @@ headers = {
     "x-app-version": "2.240927"
 }
 
-start_imsi = 466920123456005
-end_imsi = 466920123456009
+start_imsi = 460090000000005
+end_imsi = 460090000002000
 
 for imsi_num in range(start_imsi, end_imsi + 1):
     imsi_str = str(imsi_num)
@@ -57,4 +56,3 @@ for imsi_num in range(start_imsi, end_imsi + 1):
     time.sleep(0.1)  # 防止发送过快，可根据需要调整或去掉
 
 print("批量注册完成！")
-

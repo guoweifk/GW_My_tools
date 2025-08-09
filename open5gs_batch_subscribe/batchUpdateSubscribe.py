@@ -120,8 +120,11 @@ def register_subscriber(imsi):
 
 def main ():
     # 批量注册 IMSI
-    for i in range(3, 100):
-        imsi = f"466920123456{str(i).zfill(3)}"
+    start_imsi = 466920123456003
+    end_imsi = 466920123456009
+
+    for imsi_num in range(start_imsi, end_imsi + 1):
+        imsi = str(imsi_num)
         print(imsi)
         time.sleep(0.5)
         register_subscriber(imsi)
