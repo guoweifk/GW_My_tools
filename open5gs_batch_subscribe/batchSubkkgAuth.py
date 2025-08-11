@@ -13,7 +13,7 @@ import json
 import time
 
 url = "http://192.168.55.78:33030/neData/udm/auth/001"
-auth = "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhaXQiOjE3NTQ0NjQzMzQ0MDQsImV4cCI6MTc1NDQ3MTUzNDQwNCwibG9naW5fa2V5IjoiZnBoanczcTk2YzQ0OGdoaCIsInVzZXJfaWQiOiIyIiwidXNlcl9uYW1lIjoiYWRtaW4ifQ.DPtW0VEfaiktcXDuJKAyTlJsFUbDHHIMwx-J_xFX7kb3vwEuxkk9duQsA_M7HdXi4ekkfIcBDST7BQiADak8Jw"
+auth = "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhaXQiOjE3NTQ4NDUxNTI1MTgsImV4cCI6MTc1NDg1MjM1MjUxOCwibG9naW5fa2V5IjoibXppY3dmbXM1dXBwZXBzYSIsInVzZXJfaWQiOiIyIiwidXNlcl9uYW1lIjoiYWRtaW4ifQ.D7MKqlEnqJqNjfcTedxWZUsYWOxKj5lq77AgC2pLMCmN1ShSg95_38oFuNyx3spwO2rpslTiG38DUo-Csrxwlw"
 headers = {
     "accept": "*/*",
     "accept-encoding": "gzip, deflate",
@@ -30,8 +30,8 @@ headers = {
     "x-app-version": "2.240927"
 }
 
-start_imsi = 460090000000005
-end_imsi = 460090000002000
+start_imsi = 466920123497001
+end_imsi = 466920123507001
 
 for imsi_num in range(start_imsi, end_imsi + 1):
     imsi_str = str(imsi_num)
@@ -41,18 +41,18 @@ for imsi_num in range(start_imsi, end_imsi + 1):
         "amf": "8000",
         "id": "",
         "imsi": imsi_str,
-        "ki": "12341234123412341234123412340000",
+        "ki": "465B5CE8B199B49FAA5F0A2EE238A6BC",
         "neId": "001",
-        "num": 1,
-        "opc": "71a121bb69baf3c0cc53fb5038a0131f"
+        "num": 5,
+        "opc": "E8ED289DEBA952E4283B54E88E6183CA"
     }
 
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=10)
+        response = requests.post(url, headers=headers, json=payload)
         print(f"IMSI: {imsi_str} | Status: {response.status_code} | Response: {response.text}")
     except requests.RequestException as e:
         print(f"IMSI: {imsi_str} | Request failed: {e}")
 
-    time.sleep(0.1)  # 防止发送过快，可根据需要调整或去掉
+    time.sleep(0.01)  # 防止发送过快，可根据需要调整或去掉
 
 print("批量注册完成！")

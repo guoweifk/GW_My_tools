@@ -15,12 +15,10 @@ import json
 import time
 
 # Open5GS API 服务器地址
-API_URL = "http://192.168.55.186:9999/api/db/Subscriber"
+API_URL = "http://192.168.2.232:9999/api/db/Subscriber"
 
 # 认证 Token
-AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3NzI1YzIyN2EyZTc3MDAxNzRhMjc0YSIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNzQxMDk2MDQ2fQ.dgOxhMRLW3iEySIdUi3YkDjkVyqUF4tgvVHW25-4EN0"
-
-
+AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY4NWU0ODQ1MmFkN2UyMDAxN2M4ZGRlZiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNzU0ODQ5MzUzfQ.hHDf7cSrf5x-Jr14hUkkKpqyTT1ViVzeggicaCjpSk4"
 def register_subscriber(imsi):
     # 订阅者信息
     subscriber_data = {
@@ -42,6 +40,7 @@ def register_subscriber(imsi):
         "slice": [
             {
                 "sst": 1,
+                "sd": "000001",
                 "default_indicator": True,
                 "session": [
                     {
@@ -111,13 +110,13 @@ def register_subscriber(imsi):
 
 def main ():
     # 批量注册 IMSI
-    start_imsi = 466920123456003
-    end_imsi = 466920123456009
+    start_imsi = 466920123497001
+    end_imsi = 466920123507001
 
     for imsi_num in range(start_imsi, end_imsi + 1):
         imsi = str(imsi_num)
         print(imsi)
-        time.sleep(0.5)
+        time.sleep(0.02)
         register_subscriber(imsi)
 if __name__ == "__main__":
     main()
