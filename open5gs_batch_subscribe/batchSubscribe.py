@@ -15,21 +15,23 @@ import json
 import time
 
 # Open5GS API 服务器地址
-API_URL = "http://192.168.2.232:9999/api/db/Subscriber"
+API_URL = "http://192.168.55.186:9999/api/db/Subscriber"
 
 # 认证 Token
-AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY4NWU0ODQ1MmFkN2UyMDAxN2M4ZGRlZiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNzU0ODQ5MzUzfQ.hHDf7cSrf5x-Jr14hUkkKpqyTT1ViVzeggicaCjpSk4"
+AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY4NWU0ODQ1MmFkN2UyMDAxN2M4ZGRlZiIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNzU0OTI2MzcxfQ.fm3h6hfOrogAex__42AaPY1Vo-lFHU5bZLkOroUEIfI"
+
+
 def register_subscriber(imsi):
     # 订阅者信息
     subscriber_data = {
         "imsi": imsi,
         "security": {
-            "k": "465B5CE8B199B49FAA5F0A2EE238A6BC",
+            "k": "8BAF473F2F8FD09487CCCBD7097C6862",
             "amf": "8000",
             "op_type": 0,
-            "op_value": "E8ED289DEBA952E4283B54E88E6183CA",
+            "op_value": "E8ED289DEBA952E4283B54E88E618ABC",
             "op": None,
-            "opc": "E8ED289DEBA952E4283B54E88E6183CA"
+            "opc": "E8ED289DEBA952E4283B54E88E618ABC"
         },
         "ambr": {
             "downlink": {"value": 1, "unit": 3},
@@ -40,7 +42,7 @@ def register_subscriber(imsi):
         "slice": [
             {
                 "sst": 1,
-                "sd": "000001",
+                # "sd": "000001",
                 "default_indicator": True,
                 "session": [
                     {
@@ -110,8 +112,9 @@ def register_subscriber(imsi):
 
 def main ():
     # 批量注册 IMSI
-    start_imsi = 466920123497001
-    end_imsi = 466920123507001
+    start_imsi = 466920000001006
+    end_imsi = 466920000011006
+    # end_imsi = 466920000021002
 
     for imsi_num in range(start_imsi, end_imsi + 1):
         imsi = str(imsi_num)

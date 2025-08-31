@@ -1,10 +1,10 @@
 {
-  "192.168.55.244": {
+  "192.168.41.5": {
     "services": {
-      "MME": [
+      "NRF": [
         {
           "action": "stop_all",
-          "target_ip": "172.22.0.7",
+          "target_ip": "172.22.0.27",
           "target_port": "9000",
           "rate": "3000",
           "count": 0,

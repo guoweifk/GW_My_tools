@@ -42,7 +42,7 @@ def send_traffic_config_to_agent():
 
 def send_netem_config_to_agent():
     # 从 JSON 文件加载所有宿主机配置
-    file_name = "netem_profiles.json"
+    file_name = "4g_netem_profiles.json"
     config_path = os.path.join(current_dir, "..", "config", file_name)
     config_path = os.path.abspath(config_path)  # 获取绝对路径
     try:
