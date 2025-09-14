@@ -16,4 +16,4 @@ if __name__ == "__main__":
     send_netem_config_to_agent()
     # send_python_cmd_to_server()
     # send_traffic_config_to_server()
-    # send_traffic_config_to_agent()
+    send_traffic_config_to_agent()

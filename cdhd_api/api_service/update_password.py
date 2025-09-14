@@ -16,9 +16,12 @@ from cdhd_api.api_service.login import cdhd_login
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 if __name__ == "__main__":
-    url = get_5g_api_url(ApiType_5g.ORDER_RUN)
-    data = {"order_no": "20250905080849_3815"}
+    url = get_5g_api_url(ApiType_5g.USER_UPDATE_PASSWORD)
     access_token = cdhd_login()
+    data = {
+    "email":"zxh@qq.com",
+    "password":"11111111"
+}
     token_resp = https_client(
         url=url,
         method="POST",
@@ -30,7 +33,8 @@ if __name__ == "__main__":
         try:
             json_data = token_resp.json()
             message = json_data.get('message')
-            print("message:", message)
+            # print("message:", message)
+            print(f"修改密码结果: {message}")
         except ValueError as e:
             print("JSON decode failed:", e)
     else:

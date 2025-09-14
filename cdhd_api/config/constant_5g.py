@@ -18,13 +18,17 @@ class ApiType_5g(Enum):
     ORDER_UNIFIED = "ORDER_UNIFIED"
     ORDER_RUN = "ORDER_RUN"
     FILE_UPLOAD = "FILE_UPLOAD"
+    FILE_DOWNLOAD = "FILE_DOWNLOAD"
     GET_NIC = "GET_NIC"
     NS_STATUS = "NS_STATUS"
     USER_GET_TICKET = "USER_GET_TICKET"
     USER_REGISTER = "USER_REGISTER"
     USER_UPDATE_PASSWORD = "USER_UPDATE_PASSWORD"
     WEB_LOGIN = "WEB_LOGIN"
-
+    ORDER_STOP = "ORDER_STOP"
+    ORDER_QUERY = "ORDER_QUERY"
+    REALTIME_MONITOR = "REALTIME_MONITOR"
+    MESSAGE_SEND = "MESSAGE_SEND"
     # 可继续添加其他接口类型
 
 
@@ -36,11 +40,16 @@ def get_5g_api_url(api_type: ApiType_5g, **kwargs) -> str:
         ApiType_5g.ORDER_UNIFIED: API_ORDER_UNIFIED,
         ApiType_5g.ORDER_RUN: API_ORDER_RUN,
         ApiType_5g.FILE_UPLOAD: API_FILE_UPLOAD,
+        ApiType_5g.FILE_DOWNLOAD: API_FILE_DOWNLOAD,
         ApiType_5g.GET_NIC: API_GET_NIC,
         ApiType_5g.NS_STATUS: API_NS_STATUS,
         ApiType_5g.USER_GET_TICKET: API_USER_GET_TICKET,
         ApiType_5g.USER_REGISTER: API_USER_REGISTER,
         ApiType_5g.USER_UPDATE_PASSWORD: API_USER_UPDATE_PASSWORD,
+        ApiType_5g.ORDER_STOP: API_ORDER_STOP,
+        ApiType_5g.ORDER_QUERY: API_ORDER_QUERY,
+        ApiType_5g.REALTIME_MONITOR: API_REALTIME_MONITOR,
+        ApiType_5g.MESSAGE_SEND: API_MESSAGE_SEND,
         ApiType_5g.WEB_LOGIN: API_WEB_LOGIN.format(ticket=kwargs.get("ticket", ""))
     }
     if api_type not in path_map:

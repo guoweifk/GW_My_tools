@@ -1,0 +1,567 @@
+{
+    "data": {
+        "order_detail": {
+            "project_data": {
+                "project_name": "xigonda_5G_race"
+            },
+            "ports": {
+                "port0": {
+                    "prefix_len": 16,
+                    "gateway": "192.168.55.1",
+                    "port_id": 0,
+                    "interface": "port0",
+                    "bus_info": "0000:1b:00.00",
+                    "macaddr": "00:0c:29:ce:d2:98",
+                    "hwtype": 0,
+                    "mtu": 1500,
+                    "link": "UP",
+                    "speed": "1Gbps",
+                    "duplex": "full(auto)",
+                    "alias": "Nx",
+                    "dump_size": 204800,
+                    "file_size": 204800
+                }
+            },
+            "dnn_group": {
+                "internet": {
+                    "id": 4319,
+                    "name": "internet",
+                    "path": "/var/www/KODExplorer/data/Group/public/home/dnn_group/internet.txt"
+                }
+            },
+            "associations": [
+                {
+                    "ue_assoc_id": 44285,
+                    "ue_assoc_name": "onoff_race_1",
+                    "access_net_id": 19909,
+                    "access_net_name": "ran_race_1",
+                    "core_net_id": 17316,
+                    "core_net_name": "core_race_1",
+                    "amf": {
+                        "amf_array": [
+                            {
+                                "self_id": 4327,
+                                "node_name": "amf_race_1",
+                                "net_port": "Nx",
+                                "network_if": 0,
+                                "project_id": 2397,
+                                "user_id": 1,
+                                "type": 0,
+                                "MCC": 466,
+                                "MNC": 92,
+                                "region_id": 1,
+                                "set_id": 1,
+                                "pointer": 1,
+                                "ngap_ip": "192.168.2.25",
+                                "ngap_port": 38412,
+                                "SBI_ip": "11.2.1.0",
+                                "SBI_port": 80,
+                                "stac": 1,
+                                "etac": 1,
+                                "cag_enable": 0,
+                                "ea": {
+                                    "NEA0": 1,
+                                    "128-NEA2": 4
+                                },
+                                "ia": {
+                                    "NIA0": 1,
+                                    "128-NIA2": 4
+                                },
+                                "config": [
+                                    {
+                                        "count": 1,
+                                        "nssai": [
+                                            {
+                                                "snssai_sst": 1,
+                                                "snssai_sd": "000001"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ne_discover": 0
+                            }
+                        ],
+                        "assoc_id": 17316
+                    },
+                    "gnb": {
+                        "gnb_array": [
+                            {
+                                "self_id": 4820,
+                                "node_name": "gnb_race_1",
+                                "net_port": "Nx",
+                                "network_if": 0,
+                                "project_id": 2397,
+                                "user_id": 1,
+                                "cp_ip": "192.168.100.1",
+                                "cp_port": 38412,
+                                "up_ip": {
+                                    "ip_v4": "192.168.100.1"
+                                },
+                                "count": 2,
+                                "MCC": [
+                                    466
+                                ],
+                                "MNC": [
+                                    92
+                                ],
+                                "stac": 1,
+                                "etac": 1,
+                                "node_id": 70,
+                                "node_id_len": 22,
+                                "type": 1,
+                                "enable_replay": 0,
+                                "replay_ip": "192.168.55.93",
+                                "replay_port": 30018,
+                                "teid_start": 1,
+                                "disable_direct_fwd": 0,
+                                "ims_eps_fallback": 0,
+                                "nssai": [
+                                    {
+                                        "snssai_sst": 1,
+                                        "snssai_sd": "000001"
+                                    }
+                                ]
+                            }
+                        ],
+                        "assoc_id": 19909,
+                        "target_assoc": 17316
+                    },
+                    "ue": {
+                        "self_id": 6472,
+                        "name": "ue_race_1",
+                        "project_id": 2397,
+                        "user_id": 1,
+                        "count": 9999,
+                        "mcc": 466,
+                        "mnc": 92,
+                        "IMSI": 466920123456001,
+                        "longterm_key": "465B5CE8B199B49FAA5F0A2EE238A6BC",
+                        "op_opc_tp": "opc",
+                        "ea": [
+                            "128-NEA1",
+                            "128-NEA2",
+                            "128-NEA3",
+                            "NEA0"
+                        ],
+                        "ia": [
+                            "128-NIA1",
+                            "128-NIA2",
+                            "128-NIA3",
+                            "NIA0"
+                        ],
+                        "IMEISV": 8611111111111111,
+                        "MSISDN": 8611111111111,
+                        "nssai": [
+                            {
+                                "snssai_sst": 1,
+                                "snssai_sd": "000001"
+                            }
+                        ],
+                        "OPc": "E8ED289DEBA952E4283B54E88E6183CA",
+                        "cag_only": 0,
+                        "run_separate": 0,
+                        "enable_replay": 0,
+                        "assoc_id": 44285,
+                        "target_assoc": 19909
+                    },
+                    "payload": {
+                        "online_rate": 40,
+                        "process": "on_off",
+                        "process_conf": [
+                            {
+                                "process_step": "ue_register",
+                                "trigger_time": 0
+                            },
+                            {
+                                "process_step": "bot_pdu_sess",
+                                "trigger_time": 4,
+                                "params": [
+                                    {
+                                        "param_name": "pdu_sess_id",
+                                        "param_val": 1
+                                    },
+                                    {
+                                        "param_name": "dnn_group",
+                                        "param_val": "internet"
+                                    },
+                                    {
+                                        "param_name": "pdu_sess_type",
+                                        "param_val": 1
+                                    },
+                                    {
+                                        "param_name": "ssc_mode",
+                                        "param_val": 1
+                                    },
+                                    {
+                                        "param_name": "s_nssai",
+                                        "param_val": {
+                                            "sst": 1,
+                                            "sd": "000001"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "process_step": "rel_pdu_sess",
+                                "trigger_time": 300000,
+                                "params": [
+                                    {
+                                        "param_name": "pdu_sess_id",
+                                        "param_val": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "process_step": "cl_ue",
+                                "trigger_time": 10000000,
+                                "params": [
+                                    {
+                                        "param_name": "cause",
+                                        "param_val": 0
+                                    }
+                                ]
+                            }
+                        ],
+                        "assoc_id": 44285
+                    }
+                },
+                {
+                    "ue_assoc_id": 44287,
+                    "ue_assoc_name": "onoff_race_3",
+                    "access_net_id": 19911,
+                    "access_net_name": "ran_race_3",
+                    "core_net_id": 17318,
+                    "core_net_name": "core_race_3",
+                    "amf": {
+                        "amf_array": [
+                            {
+                                "self_id": 4330,
+                                "node_name": "amf_race_3",
+                                "net_port": "Nx",
+                                "network_if": 0,
+                                "project_id": 2397,
+                                "user_id": 1,
+                                "type": 0,
+                                "MCC": 466,
+                                "MNC": 92,
+                                "region_id": 1,
+                                "set_id": 1,
+                                "pointer": 1,
+                                "ngap_ip": "192.168.2.25",
+                                "ngap_port": 38412,
+                                "SBI_ip": "11.3.1.0",
+                                "SBI_port": 80,
+                                "stac": 1,
+                                "etac": 1,
+                                "cag_enable": 0,
+                                "ea": {
+                                    "NEA0": 1,
+                                    "128-NEA2": 4
+                                },
+                                "ia": {
+                                    "NIA0": 1,
+                                    "128-NIA2": 4
+                                },
+                                "config": [
+                                    {
+                                        "count": 1,
+                                        "nssai": [
+                                            {
+                                                "snssai_sst": 1,
+                                                "snssai_sd": "000001"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ne_discover": 0
+                            }
+                        ],
+                        "assoc_id": 17318
+                    },
+                    "gnb": {
+                        "gnb_array": [
+                            {
+                                "self_id": 4822,
+                                "node_name": "gnb_race_3",
+                                "net_port": "Nx",
+                                "network_if": 0,
+                                "project_id": 2397,
+                                "user_id": 1,
+                                "cp_ip": "192.168.100.7",
+                                "cp_port": 38412,
+                                "up_ip": {
+                                    "ip_v4": "192.168.100.3"
+                                },
+                                "count": 2,
+                                "MCC": [
+                                    466
+                                ],
+                                "MNC": [
+                                    92
+                                ],
+                                "stac": 1,
+                                "etac": 1,
+                                "node_id": 70,
+                                "node_id_len": 22,
+                                "type": 1,
+                                "enable_replay": 0,
+                                "replay_ip": "192.168.55.95",
+                                "replay_port": 30018,
+                                "teid_start": 1,
+                                "disable_direct_fwd": 0,
+                                "ims_eps_fallback": 0,
+                                "nssai": [
+                                    {
+                                        "snssai_sst": 1,
+                                        "snssai_sd": "000001"
+                                    }
+                                ]
+                            }
+                        ],
+                        "assoc_id": 19911,
+                        "target_assoc": 17318
+                    },
+                    "ue": {
+                        "self_id": 6474,
+                        "name": "ue_race_3",
+                        "project_id": 2397,
+                        "user_id": 1,
+                        "count": 9999,
+                        "mcc": 466,
+                        "mnc": 92,
+                        "IMSI": 466920123476001,
+                        "longterm_key": "465B5CE8B199B49FAA5F0A2EE238A6BC",
+                        "op_opc_tp": "opc",
+                        "ea": [
+                            "128-NEA1",
+                            "128-NEA2",
+                            "128-NEA3",
+                            "NEA0"
+                        ],
+                        "ia": [
+                            "128-NIA1",
+                            "128-NIA2",
+                            "128-NIA3",
+                            "NIA0"
+                        ],
+                        "IMEISV": 8631111111111111,
+                        "MSISDN": 8631111111111,
+                        "nssai": [
+                            {
+                                "snssai_sst": 1,
+                                "snssai_sd": "000001"
+                            }
+                        ],
+                        "OPc": "E8ED289DEBA952E4283B54E88E6183CA",
+                        "cag_only": 0,
+                        "run_separate": 0,
+                        "enable_replay": 0,
+                        "assoc_id": 44287,
+                        "target_assoc": 19911
+                    },
+                    "payload": {
+                        "online_rate": 40,
+                        "process": "on_off",
+                        "process_conf": [
+                            {
+                                "process_step": "ue_register",
+                                "trigger_time": 0
+                            },
+                            {
+                                "process_step": "bot_pdu_sess",
+                                "trigger_time": 4,
+                                "params": [
+                                    {
+                                        "param_name": "pdu_sess_id",
+                                        "param_val": 1
+                                    },
+                                    {
+                                        "param_name": "dnn_group",
+                                        "param_val": "internet"
+                                    },
+                                    {
+                                        "param_name": "pdu_sess_type",
+                                        "param_val": 1
+                                    },
+                                    {
+                                        "param_name": "ssc_mode",
+                                        "param_val": 1
+                                    },
+                                    {
+                                        "param_name": "s_nssai",
+                                        "param_val": {
+                                            "sst": 1,
+                                            "sd": "000001"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "process_step": "rel_pdu_sess",
+                                "trigger_time": 300000,
+                                "params": [
+                                    {
+                                        "param_name": "pdu_sess_id",
+                                        "param_val": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "process_step": "cl_ue",
+                                "trigger_time": 10000000,
+                                "params": [
+                                    {
+                                        "param_name": "cause",
+                                        "param_val": 0
+                                    }
+                                ]
+                            }
+                        ],
+                        "assoc_id": 44287
+                    }
+                }
+            ]
+        },
+        "create_at": "2025-09-05 08:25:19",
+        "enabled_epc": 0,
+        "result": {
+            "payload": {
+                "ue_race_1": [
+                    {
+                        "Procedures": "UE Registration",
+                        "Request": 0,
+                        "Success": 0,
+                        "Fail": 0,
+                        "Timeout": 0,
+                        "Max Delay": 0,
+                        "Min Delay": 0,
+                        "Avg Delay": 0
+                    },
+                    {
+                        "Procedures": "UE Requested PDU Session Establishment",
+                        "Request": 0,
+                        "Success": 0,
+                        "Fail": 0,
+                        "Timeout": 0,
+                        "Max Delay": 0,
+                        "Min Delay": 0,
+                        "Avg Delay": 0
+                    },
+                    {
+                        "Procedures": "UE Requested PDU Session Release",
+                        "Request": 0,
+                        "Success": 0,
+                        "Fail": 0,
+                        "Timeout": 0,
+                        "Max Delay": 0,
+                        "Min Delay": 0,
+                        "Avg Delay": 0
+                    },
+                    {
+                        "Procedures": "UE-initiated Deregistration",
+                        "Request": 0,
+                        "Success": 0,
+                        "Fail": 0,
+                        "Timeout": 0,
+                        "Max Delay": 0,
+                        "Min Delay": 0,
+                        "Avg Delay": 0
+                    }
+                ],
+                "ue_race_3": [
+                    {
+                        "Procedures": "UE Registration",
+                        "Request": 0,
+                        "Success": 0,
+                        "Fail": 0,
+                        "Timeout": 0,
+                        "Max Delay": 0,
+                        "Min Delay": 0,
+                        "Avg Delay": 0
+                    },
+                    {
+                        "Procedures": "UE Requested PDU Session Establishment",
+                        "Request": 0,
+                        "Success": 0,
+                        "Fail": 0,
+                        "Timeout": 0,
+                        "Max Delay": 0,
+                        "Min Delay": 0,
+                        "Avg Delay": 0
+                    },
+                    {
+                        "Procedures": "UE Requested PDU Session Release",
+                        "Request": 0,
+                        "Success": 0,
+                        "Fail": 0,
+                        "Timeout": 0,
+                        "Max Delay": 0,
+                        "Min Delay": 0,
+                        "Avg Delay": 0
+                    },
+                    {
+                        "Procedures": "UE-initiated Deregistration",
+                        "Request": 0,
+                        "Success": 0,
+                        "Fail": 0,
+                        "Timeout": 0,
+                        "Max Delay": 0,
+                        "Min Delay": 0,
+                        "Avg Delay": 0
+                    }
+                ]
+            },
+            "port": [
+                {
+                    "port name": "port0",
+                    "rx-bytes": 53786,
+                    "rx-pkts": 486,
+                    "tx-bytes": 3858,
+                    "tx-pkts": 41,
+                    "rx-bps": 13840,
+                    "tx-bps": 0,
+                    "rx-pps": 14,
+                    "tx-pps": 0,
+                    "speed": 1000,
+                    "rx-nobuf": 0,
+                    "rx-err": 0,
+                    "rx-miss": 0,
+                    "re-trans": 0
+                },
+                {
+                    "port name": "total",
+                    "rx-bytes": 53786,
+                    "rx-pkts": 486,
+                    "tx-bytes": 3858,
+                    "tx-pkts": 41,
+                    "rx-bps": 13840,
+                    "tx-bps": 0,
+                    "rx-pps": 14,
+                    "tx-pps": 0,
+                    "speed": "--",
+                    "rx-nobuf": 0,
+                    "rx-err": 0,
+                    "rx-miss": 0,
+                    "re-trans": 0
+                }
+            ],
+            "order_no": "20250905082518_3816"
+        },
+        "cur_app": "sim_5gc",
+        "user_id": 1,
+        "status": 1,
+        "tc_queue_id": null,
+        "channel": 1,
+        "ue_assoc_ids": [
+            44287,
+            44285
+        ],
+        "ue_assocs": [
+            "onoff_race_1",
+            "onoff_race_3"
+        ],
+        "desc": null,
+        "judge_cond": null
+    }
+}
+

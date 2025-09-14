@@ -11,18 +11,18 @@
 from cdhd_api.http_client.https_client import https_client
 from cdhd_api.config.constant_5g import get_5g_api_url, ApiType_5g
 import urllib3
-from cdhd_api.api_service.login import cdhd_login
+# from cdhd_api.api_service.login import cdhd_login
+from cdhd_api.api_service.login_zxh import cdhd_login
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 if __name__ == "__main__":
-    url = get_5g_api_url(ApiType_5g.ORDER_RUN)
-    data = {"order_no": "20250905080849_3815"}
+    url = get_5g_api_url(ApiType_5g.ORDER_STOP)
     access_token = cdhd_login()
     token_resp = https_client(
         url=url,
         method="POST",
-        body=data,
+        body={},
         auth_token=access_token,
         verify_ssl=False
     )
